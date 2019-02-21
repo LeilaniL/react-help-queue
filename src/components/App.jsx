@@ -59,11 +59,11 @@ class App extends React.Component {
               />
             )}
           />
-          <Route component={Error404} />
           <Route
             path="/admin"
             render={() => <Admin ticketList={this.state.masterTicketList} />}
-          />
+          />{" "}
+          <Route component={Error404} />
         </Switch>
       </div>
     );
