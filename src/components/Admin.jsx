@@ -1,10 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import TicketDetail from './TicketDetail';
 
 function Admin() {
     return (
         <div>
-            <TicketList ticketList={props.ticketList} />
+            <h2>Admin</h2>
+            <TicketDetail />
+            <TicketList
+                ticketList={props.ticketList}
+                currentRouterPath={props.currentRouterPath} />
         </div>
     );
 }
