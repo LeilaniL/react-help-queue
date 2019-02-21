@@ -19,7 +19,13 @@ function Ticket(props) {
     return (
       <div
         onClick={() => {
-          alert("hey, you just clicked the ticket belonging to " + props.names);
+          console.log("I am Ticket props: " + props.names);
+          props.onTicketSelection({
+            names: props.names,
+            location: props.location,
+            issue: props.issue,
+            formattedWaitTime: props.formattedWaitTime
+          });
         }}
       >
         {ticketInformation}
@@ -35,7 +41,8 @@ Ticket.propTypes = {
   location: PropTypes.string.isRequired,
   issue: PropTypes.string,
   formattedWaitTime: PropTypes.string.isRequired,
-  currentRouterPath: PropTypes.string
+  currentRouterPath: PropTypes.string,
+  onTicketSelection: PropTypes.func
 };
 
 export default Ticket;

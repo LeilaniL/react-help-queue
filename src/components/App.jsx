@@ -10,9 +10,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      masterTicketList: []
+      masterTicketList: [],
+      selectedTicket: null
     };
     this.handleAddingNewTicketToList = this.handleAddingNewTicketToList.bind(
+      this
+    );
+    this.handleChangingSelectedTicket = this.handleChangingSelectedTicket.bind(
       this
     );
   }
@@ -39,6 +43,20 @@ class App extends React.Component {
     newMasterTicketList.push(newTicket);
     this.setState({ masterTicketList: newMasterTicketList });
   }
+  handleChangingSelectedTicket(ticket) {
+    this.setState({ selectedTicket: ticket });
+    // TODO figure out why selected ticket is not updating immediately, left off at Mutating State Slices - Rendering Ticket Details
+    // setTimeout(() => {
+    //   alert(
+    //     "The selected ticket is now: " +
+    //       this.state.selectedTicket.names +
+    //       ticket.names
+    //   );
+    // }, 50);
+  }
+  // componentDidUpdate() {
+  //   alert("The selected ticket is now: " + this.state.selectedTicket.names);
+  // }
   render() {
     return (
       <div>
@@ -65,6 +83,7 @@ class App extends React.Component {
               <Admin
                 ticketList={this.state.masterTicketList}
                 currentRouterPath={props.location.pathname}
+                onTicketSelection={this.handleChangingSelectedTicket}
               />
             )}
           />
