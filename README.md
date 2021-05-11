@@ -6,6 +6,16 @@
 - Instead of using the `.jsx` file extension now we usually just use regular `.js`
 - The Error component gets rendered whenever someone tries to visit a route that doesn't exist (or rather, one that react-router doesn't recognize): see App.jsx and check out react-router's Switch component being used, with the Error component as the default when no other case matches
 
+### Component Hierarchy
+- App
+  - Admin (lets users close tickets)
+  - Error
+  - TicketList
+  1) Ticket
+  - NewTicketControl
+  1) ConfirmationQuestions (checks whether student has asked another pair first)
+  2) NewTicketForm
+
 ### Known Bugs & Needed Improvements
 - Selecting a ticket to show details is not finished
 - Lots of console logs left in
